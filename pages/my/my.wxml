@@ -1,0 +1,45 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+	<view class="my_header">
+		<image class="mybg" src="../../static/images/mybg.png"></image>
+		<view class="my_h_box">
+			<view class="my_tx">
+				<image src="../../static/images/tx.png"></image>
+			</view>
+			<view class="my_name">{{'全网营销'}}</view>
+			<view class="myset">
+				<image src="../../static/images/myset.png"></image>
+			</view>
+		</view>
+	</view>
+	<view class="my_list">
+		<view class="my_li">
+			<view class="my_icon">
+				<image src="../../static/images/mykc.png"></image>
+			</view>
+			<view class="my_li_name">我的课程</view>
+			<image class="my_li_next" src="../../static/images/next1.png"></image>
+		</view>
+		<view class="my_li">
+			<view class="my_icon">
+				<image src="../../static/images/myyy.png"></image>
+			</view>
+			<view class="my_li_name">我的预约</view>
+			<image class="my_li_next" src="../../static/images/next1.png"></image>
+		</view>
+		<view class="my_li">
+			<view class="my_icon">
+				<image src="../../static/images/myls.png"></image>
+			</view>
+			<view class="my_li_name">律师咨询</view>
+			<image class="my_li_next" src="../../static/images/next1.png"></image>
+		</view>
+		<view class="my_li">
+			<view class="my_icon">
+				<image src="../../static/images/mylx.png"></image>
+			</view>
+			<view class="my_li_name">联系客服</view>
+			<image class="my_li_next" src="../../static/images/next1.png"></image>
+		</view>
+	</view>
+</view>

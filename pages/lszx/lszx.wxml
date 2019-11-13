@@ -1,0 +1,36 @@
+<!--pages/lszx/lszx.wxml-->
+<import src="/utils/htmlStatus/index.wxml" />
+<wxs src="../../utils/filter.wxs" module="filter" />
+<template is="htmlStatus" data="{{...htmlStatus}}" />
+<view class="container">
+  <view class="zx_banner" data-url="" bindtap="jump">
+    <image src="../../static/images/zx_banner.png"></image>
+  </view>
+  <view class="zx_li" data-url="" bindtap="jump">
+    <view class=" zx_img">
+      <image src="../../static/images/lszx1.png"></image>
+    </view>
+    <view class="zx_msg">
+      <view class="zx_tit">{{'民事咨询'}}</view>
+      <view class="zx_inr">{{'套用模型省时省力，不用冥思苦想，但是每一个需要设计的内容和体系应该是'}}</view>
+    </view>
+  </view>
+  <view class="zx_li" data-url="" bindtap="jump">
+    <view class=" zx_img">
+      <image src="../../static/images/lszx2.png"></image>
+    </view>
+    <view class="zx_msg">
+      <view class="zx_tit">{{'刑事咨询'}}</view>
+      <view class="zx_inr">{{'套用模型省时省力，不用冥思苦想，但是每一个需要设计的内容和体系应该是'}}</view>
+    </view>
+  </view>
+  <view class="zx_li" data-url="" bindtap="jump">
+    <view class=" zx_img">
+      <image src="../../static/images/lszx3.png"></image>
+    </view>
+    <view class="zx_msg">
+      <view class="zx_tit">{{'婚姻咨询'}}</view>
+      <view class="zx_inr">{{'套用模型省时省力，不用冥思苦想，但是每一个需要设计的内容和体系应该是'}}</view>
+    </view>
+  </view>
+</view>

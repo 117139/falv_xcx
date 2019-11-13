@@ -1,0 +1,132 @@
+/* pages/index/index.wxss */
+/*swiper*/
+.banner_box{
+	width: 100%;
+	padding: 0 30rpx;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.swiper{	
+	width: 100%;
+	height: 350rpx;
+	/* border-radius: 12rpx; */
+}
+.swiper image{
+	width: 100%;
+	height: 350rpx;
+	/* border-radius: 12rpx; */
+}
+.index_type{
+	width: 100%;
+	padding: 50rpx 30rpx 35rpx;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	align-items: center;
+}
+.i_type_one{
+  flex:1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  font-size: 30rpx;
+}
+.i_type_one image{
+	width: 68rpx;
+	height: 68rpx;
+  margin-bottom:30rpx;
+}
+.index_ggimg{
+	width: 100%;
+	padding: 0 30rpx;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.index_ggimg image{
+	width: 100%;
+	height: 300rpx;
+}
+.zx_tit{
+	width: 100%;
+	padding: 30rpx 30rpx 20rpx;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 34rpx;
+	color: #222;
+	font-weight: bold;
+	
+}
+.flzx{
+	width: 100%;
+	padding: 0 30rpx;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	justify-content: space-between;
+}
+.xz_one{
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 30rpx;
+	color: #222;
+}
+.zx_one_img{
+	width: 200rpx;
+		height: 200rpx;
+		box-shadow:0px 1px 10px #ddd;
+		border-radius: 12rpx;
+	margin-bottom: 20rpx;
+}
+.tuijian_img{
+	width: 330rpx;
+	height: 264rpx;
+	border-radius: 10rpx;
+	margin-bottom: 20rpx;
+}
+.teacher_Box{
+	width:100%;
+	height:325rpx;
+	display:flex;
+	white-space:nowrap;
+}
+.teacher_one{
+	display:inline-flex;
+	flex-direction: column;
+	align-items: center;
+	width: 300rpx;
+	margin-left: 30rpx;
+	font-size: 30rpx;
+	color: #222;
+}
+.teacher_one:last-child{
+	margin-right: 30rpx;
+}
+.teacher_one image{
+	width: 300rpx;
+	height: 240rpx;
+	margin-bottom: 20rpx;
+}
+.zxkf_btn{
+	width: 90rpx;
+	height: 90rpx;
+	position: fixed;
+	bottom: 100rpx;
+	right: 30rpx;
+}
+.zxkf_btn image{
+	width: 100%;
+	height: 100%;
+}
+.zxkf_btn button{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  opacity: 0;
+}

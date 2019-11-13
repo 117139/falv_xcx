@@ -1,0 +1,29 @@
+<!--pages/fenlei/fenlei.wxml-->
+<import src="/utils/htmlStatus/index.wxml" />
+<wxs src="../../utils/filter.wxs" module="filter" />
+<template is="htmlStatus" data="{{...htmlStatus}}" />
+<view class="container dis_flex">
+  <scroll-view class='fenlei_l' scroll-y>
+    <view  wx:for="{{fenlei}}" 
+		  wx:for-index="idx" 
+		  wx:for-item="item" 
+		  wx:key="idx" class="{{fl_cur==idx?'cur':''}}" data-idx="{{idx}}" bindtap="qhcur">
+      {{item}}
+    </view>
+  </scroll-view>
+  <view class='fenlei_r'>
+    <view class="fenleibanner" data-url=""
+			bindtap="jump">
+      <image src="../../static/images/fenlei_banner.png"></image>
+    </view>
+		<view class="fenlei_two" wx:for="{{fenlei}}" 
+		  wx:for-index="idx" 
+		  wx:for-item="item" 
+		  wx:key="idx"
+			data-url=""
+			bindtap="jump">
+			<text>{{'二级分类'}}</text>
+			<image src="../../static/images/next.png"></image>
+		</view>
+  </view>
+</view>

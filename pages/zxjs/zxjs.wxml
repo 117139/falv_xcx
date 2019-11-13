@@ -1,0 +1,12 @@
+<!--pages/zxjs/zxjs.wxml-->
+<view class="container">
+  <view class="zx_t_img">
+    <image src="../../static/images/banner.png"></image>
+  </view>
+  <view class="zx_name">{{'名撒或is所所所所'}}</view>
+  <view class="zx_msg">{{'民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍'}}</view>
+	<view class="footer_f">
+		<view class="zx_pri">{{'￥118'}}</view>
+		<view class="zx_btn">付费咨询</view>
+	</view>
+</view>

@@ -1,0 +1,63 @@
+/* pages/fenlei/fenlei.wxss */
+.container{
+  flex-direction: row;
+  background: #fff;
+}
+.fenlei_l{
+	position: fixed;
+	top: 0;
+	left: 0;
+  width: 240rpx;
+  height: 100vh;
+  display: flex;
+  
+  flex-direction: column;
+    background: #F6F6F6;
+    font-size: 30rpx;
+    color: #666;
+}
+.fenlei_l view{
+  width: 180rpx;
+  padding: 0 30rpx;
+  min-height:120rpx;
+  display: flex;
+  white-space:wrap;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.fenlei_l view.cur{
+  background: #3879D1;
+  color: #fff;
+}
+.fenlei_r{
+  width: 100%;
+	padding-left: 240rpx;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.fenleibanner{
+	width: 100%;
+}
+.fenleibanner image{
+	width: 100%;
+	height: 184rpx;
+}
+.fenlei_two{
+	width: 100%;
+	padding: 0 30rpx;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 90rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #F6F6F6;
+	font-size: 30rpx;
+	color: #666;
+}
+.fenlei_two image{
+	width: 14rpx;
+	height: 24rpx;
+}

@@ -1,0 +1,97 @@
+/* pages/my/my.wxss */
+page{
+  height: 100vh;background: #f6f6f6;
+}
+.container{
+	background: #fff;
+  height: auto;
+}
+.my_header{
+	width: 100%;
+	height: 320rpx;
+	position: relative;
+	margin-bottom: 13rpx;
+}
+.mybg{
+	position: absolute;
+	width: 100%;
+	height: 320rpx;
+	top: 0;
+	left: 0;
+  z-index: 1;
+}
+.my_h_box{
+	position: absolute;
+	width: 100%;
+	height: 320rpx;
+	padding: 44rpx 30rpx 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	top: 0;
+	left: 0;
+  z-index: 2;
+	display: flex;
+	flex-direction: row;
+}
+.my_tx{
+	width: 130rpx;
+	height: 130rpx;
+	border-radius: 50%;
+	margin-right: 19rpx;
+}
+.my_tx image{
+	width: 100%;
+	height: 100%;
+}
+.my_name{
+	flex: 1;
+	font-size: 34rpx;
+	line-height: 36rpx;
+	color: #fff;
+	padding-top: 16px;
+}
+.myset{
+	width: 52rpx;
+	height: 48rpx;
+}
+.myset image{
+	width: 100%;
+	height: 100%;
+}
+.my_list{
+	width: 100%;
+	padding: 0 30rpx;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.my_li{
+	width: 100%;
+	height: 110rpx;
+	border-bottom: 2rpx solid #f6f6f6;
+	display: flex;
+	align-items: center;
+}
+.my_icon{
+	width: 92rpx;
+	height: 110rpx;
+	display: flex;
+	align-items: center;
+	padding-left: 7rpx;
+}
+.my_icon image{
+	width: 50rpx;
+	height: 45rpx;
+}
+.my_li_name{
+	flex: 1;
+	display: flex;
+	align-items: center;
+	font-size:34rpx;
+	color: #222;
+}
+.my_li_next{
+	width:15rpx;
+	height:27rpx;
+}

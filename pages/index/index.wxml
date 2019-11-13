@@ -1,0 +1,71 @@
+<!--pages/index/index.wxml-->
+<import src="/utils/htmlStatus/index.wxml" />
+<wxs src="../../utils/filter.wxs" module="filter" />
+<template is="htmlStatus" data="{{...htmlStatus}}" />
+<view class="container">
+	<view class="banner_box">
+		<swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+		 indicator-active-color='#fff' circular="{{circular}}">
+			<block wx:for="{{bannerimg}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+				<swiper-item class="swiper_item">
+					<!-- <image wx:if="{{item}}" lazy-load='true' src="{{filter.imgIP(item)}}" class="slide-image" /> -->
+					<image wx:if="{{item}}" lazy-load='true' src="{{item}}" class="slide-image" />
+
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<view class="dis_flex index_type">
+		<view class="i_type_one" wx:for="{{index_type}}" wx:for-index="idx" wx:for-item="item" wx:key="idx" data-url=""
+		 bindtap="jump">
+			<image src="{{item.img}}"></image>
+			<text>{{item.name}}</text>
+		</view>
+	</view>
+	<view class="index_ggimg" data-url="" bindtap="jump">
+		<image src="../../static/images/index13.png"></image>
+	</view>
+	<view class="zx_tit">法律咨询</view>
+	<view class="dis_flex flzx">
+		<view class="xz_one">
+			<image class="zx_one_img" src="../../static/images/xz1.png"></image>
+			<text>民事咨询</text>
+		</view>
+		<view class="xz_one">
+			<image class="zx_one_img" src="../../static/images/zx2.png"></image>
+			<text>刑事咨询</text>
+		</view>
+		<view class="xz_one">
+			<image class="zx_one_img" src="../../static/images/zx3.png"></image>
+			<text>婚姻咨询</text>
+		</view>
+	</view>
+	<view class="zx_tit">推荐课程</view>
+	<view class="dis_flex flzx">
+		<view class="xz_one">
+			<image class="tuijian_img" src="../../static/images/tuijian.png"></image>
+			<text>全程辅导班</text>
+		</view>
+		<view class="xz_one ">
+			<image class="tuijian_img" src="../../static/images/tuijian1.png"></image>
+			<text>主观题特训班</text>
+		</view>
+	</view>
+  <view class="zx_tit">师资力量</view>
+  <scroll-view class='teacher_Box' scroll-x>
+	  <view class="teacher_one"  
+		  wx:for="{{index_type}}" 
+		  wx:for-index="idx" 
+		  wx:for-item="item" 
+		  wx:key="idx" 
+		  data-url=""
+			bindtap="jump">
+		 <image src="../../static/images/teacher.png"></image>
+		 <text>*老师</text>
+	  </view>
+	</scroll-view>
+	<view class="zxkf_btn">
+		<button open-type="contact" bindcontact="kffuc"></button>
+		<image src="../../static/images/zxkf.png"></image>
+	</view>
+</view>
