@@ -1,0 +1,78 @@
+<!--pages/teacher_p/teacher_p.wxml-->
+<import src="/utils/htmlStatus/index.wxml" />
+<import src="../../vendor/wxParse/wxParse.wxml" />
+<wxs src="../../utils/filter.wxs" module="filter" />
+<template is="htmlStatus" data="{{...htmlStatus}}" />
+<view class="container">
+	<view class="ls_banner">
+		<image src="../../static/images/teacher.png"></image>
+	</view>
+	<view class="ls_box">
+		<view class="ls_m1">
+			<view class="ls_name">{{'****老师'}}</view>
+			<text class="iconfont iconfenxiang"></text>
+		</view>
+		<view class="teacher_js">{{'毕业于中国政法大学，教师简介教师简介教师简介教师简介教师简介教师简介教师简介'}}</view>
+	</view>
+	<view class="hx30"></view>
+	<view class="js_tab">
+		<view class="tab_one {{cur==0?'cur':''}}" data-idx='0' bindtap="qhcur">简介</view>
+		<view class="tab_one {{cur==1?'cur':''}}" data-idx='1' bindtap="qhcur">所授课程</view>
+		<view class="tab_one {{cur==2?'cur':''}}" data-idx='2' bindtap="qhcur">评价</view>
+	</view>
+	<view wx:if="{{cur==0}}" class="xq_msg">
+		<view class="tab_tit">教师简介</view>
+		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+	</view>
+	<view wx:if="{{cur==1}}" class="xq_msg">
+		<view class="tab_tit">课程展示</view>
+		<view class="ls_li"
+			wx:for="{{index_tab}}" 
+			wx:for-index="idx" 
+			wx:for-item="item" 
+			wx:key="idx"
+			data-url="" bindtap="jump">
+			<view class="lsimg">
+				<image src="../../static/images/teacher.png"></image>
+			</view>
+			<view class="ls_msg">
+				<view class="ls_name">{{'司法考试全程题'}}</view>
+				<view class="ls_add">
+					<text class="cD13838">{{'1344'}}人</text>
+					<text>已学习</text>
+				</view>
+			</view>
+			<view class="go_xq">
+					立即学习
+				</view>
+		</view>
+	</view>
+	<view wx:if="{{cur==2}}" class="xq_msg">
+		<view class="tab_tit">
+			<text>用户评价</text>
+			<text class="go_pl" data-url="/pages/fb_pl/fb_pl" bindtap='jump'>发表评价</text>
+		</view>
+		<view class="pl_li" wx:for="{{index_tab}}" 
+			wx:for-index="idx" 
+			wx:for-item="item" 
+			wx:key="idx">
+			<view class="pl_tx">
+				<image src="../../static/images/teacher.png"></image>
+			</view>
+			<view class="pl_msg">
+				<view class="pl_pf">
+					<text  class="iconfont {{1==1?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
+					<text  class="iconfont {{1==1?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
+					<text  class="iconfont {{1==1?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
+					<text  class="iconfont {{1==1?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
+					<text  class="iconfont {{1==0?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
+				</view>
+				<view class="pl_pl">{{'课程非常好很实用'}}</view>
+				<view class="pl_user">
+					<text class="pl_uname">{{'党颖'}}</text>
+					<text>{{'2019-4-26'}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,23 @@
+<!--pages/fb_pl/fb_pl.wxml-->
+<view class="container">
+  <view class="fbpl_pf">
+    <text class="fb_obj">对***老师的评价</text>
+    <view class="pl_pf">
+      <text  class="iconfont {{pf>=1?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"
+       data-num="1" bindtap="setpf"></text>
+      <text  class="iconfont {{pf>=2?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"
+       data-num="2" bindtap="setpf"></text>
+      <text  class="iconfont {{pf>=3?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"
+       data-num="3" bindtap="setpf"></text>
+      <text  class="iconfont {{pf>=4?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"
+       data-num="4" bindtap="setpf"></text>
+      <text  class="iconfont {{pf==5?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"
+       data-num="5" bindtap="setpf"></text>
+    </view>
+  </view>
+  <view class="fb_box">
+    <textarea maxlength="500" placeholder="请输入评价内容" bindinput="getint"></textarea>
+    <text>{{num}}/500</text>
+  </view>
+  <view class="fb_btn">发表</view>
+</view>

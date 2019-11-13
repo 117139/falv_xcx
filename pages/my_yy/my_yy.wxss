@@ -1,0 +1,61 @@
+/* pages/my_yy/my_yy.wxss */
+page{
+  background: #F6F6F6;
+}
+.container{
+  /* padding: 0 30rpx; */
+  box-sizing: border-box;
+}
+.h_tip{
+  width: 100%;
+  height: 40rpx;
+  margin-bottom: 20rpx;
+  background: #3879D1; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  color: #fff
+}
+.kc_li{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size:34rpx;
+  color: #222;
+    border-bottom: 2rpx solid #d1d1d1;
+    background: #fff;
+    margin-bottom: 20rpx;
+}
+.myyy_name{
+  width: 100%;
+  padding: 0 30rpx;
+  height: 110rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #d1d1d1;
+}
+.myyy_msg{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.mymsg_m1{
+  display: flex;
+  align-items: center;
+}
+.m1_tit{
+  width: 4em;
+  margin-right: 50rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+.m1_inr{
+  font-size: 30rpx;
+  color: #222222;
+}
+.m2{
+  margin-top:30rpx;
+}

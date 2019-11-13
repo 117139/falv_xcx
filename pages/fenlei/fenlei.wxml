@@ -20,7 +20,7 @@
 		  wx:for-index="idx" 
 		  wx:for-item="item" 
 		  wx:key="idx"
-			data-url=""
+			data-url="/pages/details/details"
 			bindtap="jump">
 			<text>{{'二级分类'}}</text>
 			<image src="../../static/images/next.png"></image>

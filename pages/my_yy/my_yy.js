@@ -1,4 +1,4 @@
-// pages/kecheng_zx/kecheng_zx.js
+// pages/my_yy/my_yy.js
 var htmlStatus = require('../../utils/htmlStatus/index.js')
 const app = getApp()
 Page({
@@ -18,8 +18,6 @@ Page({
         title: '司法考试全程班'
       },
     ],
-    cur: 0,
-    ffcur:0
   },
 
   /**
@@ -68,7 +66,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log('上拉')
+
   },
 
   /**
@@ -77,22 +75,6 @@ Page({
   onShareAppMessage: function () {
 
   },
-  qhcur(e) {
-    var that = this
-    var type = e.currentTarget.dataset.type
-    var idx = e.currentTarget.dataset.idx
-    console.log(idx)
-    if (type==1){
-      that.setData({
-        cur: idx
-      })
-    }else{
-      that.setData({
-        ffcur: idx
-      })
-    }
-  },
-
   jump(e) {
     app.jump(e)
   },

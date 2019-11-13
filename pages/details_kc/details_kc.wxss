@@ -1,0 +1,161 @@
+/* pages/details_kc/details_kc.wxss */
+.ls_banner{
+	width: 100%;
+	height: 600rpx;
+}
+.ls_banner video{
+  width: 100%;
+	height: 100%;
+}
+.ls_banner image{
+	width: 100%;
+	height: 100%;
+}
+.ls_box{
+	width: 100%;
+	padding: 30rpx;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.ls_m1{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 34rpx;
+	color: #222;
+	font-weight: 500;
+}
+.ls_m1 .iconfenxiang{
+	font-size: 42rpx;
+	color: #666666;
+}
+.ls_m2{
+	font-size: 26rpx;
+	color: #666;
+	display: flex;
+	align-items: center;
+	margin-top: 20rpx;
+}
+.ls_m2 .iconfont{
+	font-size: 24rpx;
+	color: #3879D1;
+	margin-right: 7px;
+}
+/*tab*/
+.js_tab{
+	width: 100%;
+	height: 80rpx;
+	border-bottom: 1rpx solid #f6f6f6;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.tab_one{
+	width: 30%;
+	color: #222;
+	font-size: 34rpx;
+	text-align: center;
+}
+.cur{
+	color: #3879D1;
+}
+.juli{
+	color: #D13838;
+	font-size: 24rpx;
+}
+.teacher_js{
+	margin-top: 15rpx;
+	width: 550rpx;
+	font-size: 26rpx;
+	color: #666;
+	
+}
+/**/
+.ls_li{
+  display: flex;
+  width: 100%;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  align-items: center;
+  background: #fff;
+  border-bottom: 2px solid #D1D1D1;
+}
+.lsimg{
+  width:180rpx;
+  height:144rpx;
+  margin-right: 30rpx;
+}
+.lsimg image{
+  width: 100%;
+  height: 100%;
+}
+.ls_msg{
+  flex:1;
+  height:144rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.ls_name{
+  color: #222;
+  font-size: 34rpx;
+}
+.ls_add{
+  font-size: 26rpx;
+  color: #666;
+}
+.ls_add image{
+  width: 26rpx;
+  height: 27rpx;
+}
+.go_xq{
+  width:150rpx;
+  height:50rpx;
+  background:rgba(209,56,56,1);
+  border-radius:30rpx;
+  font-size: 26rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.go_pl{
+	font-size: 26rpx;
+	color: #D13838;
+}
+/*评论*/
+.pl_li{
+	width: 100%;
+	padding: 30rpx 0;
+	border-bottom: 2rpx solid #d1d1d1;
+  display: flex;
+  
+}
+.pl_tx{
+  width:110rpx;
+  height:110rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+	overflow: hidden;
+}
+.pl_tx image{
+	width: 100%;
+	height: 100%;
+}
+.pl_msg{
+	flex: 1;
+}
+
+.pl_pl{
+	color: #666;
+	font-size: 26rpx;
+	margin: 10rpx 0 30rpx;
+}
+.pl_user{
+	font-size: 24rpx;
+	color: #999;
+}
+.pl_uname{
+	margin-right: 30rpx;
+}

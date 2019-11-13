@@ -1,4 +1,6 @@
 // pages/my/my.js
+var htmlStatus = require('../../utils/htmlStatus/index.js')
+const app = getApp()
 Page({
 
   /**
@@ -62,5 +64,12 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  jump(e){
+    app.jump(e)
+  },
+
+  kffuc(e) {
+    console.log(e)
   }
 })

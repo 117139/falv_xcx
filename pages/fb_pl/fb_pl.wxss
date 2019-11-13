@@ -1,0 +1,51 @@
+/* pages/fb_pl/fb_pl.wxss */
+.container{
+  padding: 0 30rpx;
+}
+.fbpl_pf{
+  width: 100%;
+  height: 87rpx;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.fb_obj{
+  margin-right: 20rpx;
+}
+.pl_pf{
+  flex: 1;
+}
+.fb_box{
+  width:690rpx;
+  height:380rpx;
+  background:rgba(245,245,245,1);
+  padding: 30rpx 30rpx 80rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.fb_box textarea{
+  width: 100%;
+  height: 100%;
+  font-size: 26rpx;
+}
+.fb_box text{
+  position: absolute;
+  bottom: 10rpx;
+  right: 30rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+.fb_btn{
+  margin-top: 300rpx;
+  width:690rpx;
+  height:94rpx;
+  background:rgba(209,56,56,1);
+  border-radius:2rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 36rpx;
+}

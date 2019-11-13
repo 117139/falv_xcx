@@ -1,25 +1,24 @@
-// pages/kecheng_zx/kecheng_zx.js
-var htmlStatus = require('../../utils/htmlStatus/index.js')
-const app = getApp()
+// pages/baoming/baoming.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    index_tab: [
+    date: '',
+    date1:'',
+    array: [
       {
-        title: '全部'
+        name: '项目1'
       },
       {
-        title: '司法考试阶段班'
+        name: '项目2'
       },
       {
-        title: '司法考试全程班'
+        name: '项目3'
       },
     ],
-    cur: 0,
-    ffcur:0
+    index:0
   },
 
   /**
@@ -68,7 +67,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log('上拉')
+
   },
 
   /**
@@ -77,23 +76,26 @@ Page({
   onShareAppMessage: function () {
 
   },
-  qhcur(e) {
-    var that = this
-    var type = e.currentTarget.dataset.type
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+  },
+  bindDateChange: function (e) {
+    console.log(e.currentTarget.dataset.idx)
+    console.log('picker发送选择改变，携带值为', e.detail.value)
     var idx = e.currentTarget.dataset.idx
-    console.log(idx)
-    if (type==1){
-      that.setData({
-        cur: idx
+    if (idx == 1) {
+      this.setData({
+        date: e.detail.value
+      })
+    } else if (idx == 2) {
+      this.setData({
+        date1: e.detail.value
       })
     }else{
-      that.setData({
-        ffcur: idx
+      this.setData({
+        index: e.detail.value
       })
     }
-  },
-
-  jump(e) {
-    app.jump(e)
+    
   },
 })

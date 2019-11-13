@@ -7,27 +7,30 @@
 				<image src="../../static/images/tx.png"></image>
 			</view>
 			<view class="my_name">{{'全网营销'}}</view>
-			<view class="myset">
+			<!-- <view class="myset">
 				<image src="../../static/images/myset.png"></image>
-			</view>
+			</view> -->
 		</view>
 	</view>
 	<view class="my_list">
-		<view class="my_li">
+		<view class="my_li" data-url="/pages/my_kc/my_kc"
+			bindtap="jump">
 			<view class="my_icon">
 				<image src="../../static/images/mykc.png"></image>
 			</view>
 			<view class="my_li_name">我的课程</view>
 			<image class="my_li_next" src="../../static/images/next1.png"></image>
 		</view>
-		<view class="my_li">
+		<view class="my_li" data-url="/pages/my_yy/my_yy"
+			bindtap="jump">
 			<view class="my_icon">
 				<image src="../../static/images/myyy.png"></image>
 			</view>
 			<view class="my_li_name">我的预约</view>
 			<image class="my_li_next" src="../../static/images/next1.png"></image>
 		</view>
-		<view class="my_li">
+		<view class="my_li" data-url="/pages/lszx/lszx"
+			bindtap="jump">
 			<view class="my_icon">
 				<image src="../../static/images/myls.png"></image>
 			</view>
@@ -35,6 +38,7 @@
 			<image class="my_li_next" src="../../static/images/next1.png"></image>
 		</view>
 		<view class="my_li">
+      <button open-type="contact" bindcontact="kffuc"></button>
 			<view class="my_icon">
 				<image src="../../static/images/mylx.png"></image>
 			</view>

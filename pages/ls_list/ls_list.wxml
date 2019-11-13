@@ -4,35 +4,35 @@
 <template is="htmlStatus" data="{{...htmlStatus}}" />
 <view class="container">
 	<scroll-view scroll-x="true" class="index_scroll">
-			<view	wx:for="{{index_tab}}" 
-				wx:for-index="idx" 
-				wx:for-item="item" 
-				wx:key="idx"
-        data-idx='{{idx}}'
-        bindtap='qhcur'
-				class="index_tab pore {{idx==cur?'icur':''}}">{{item.title}}
-         
-        </view>
-		</scroll-view>
-    <view class="hx20"></view>
-    <view class="ls_li"
-      wx:for="{{index_tab}}" 
+    <view	wx:for="{{index_tab}}" 
       wx:for-index="idx" 
       wx:for-item="item" 
       wx:key="idx"
-      data-url="" bindtap="jump">
-      <view class="lsimg">
-        <image src="../../static/images/teacher.png"></image>
-      </view>
-      <view class="ls_msg">
-        <view class="ls_name">{{'北京海淀律所'}}</view>
-        <view class="ls_add">
-          <image src="../../static/images/address.png"></image>
-          <text>{{'北京海淀区胜利街8号'}}</text>
-        </view>
-      </view>
-      <view class="go_xq">
-          了解详情
-        </view>
+      data-idx='{{idx}}'
+      bindtap='qhcur'
+      class="index_tab pore {{idx==cur?'icur':''}}">{{item.title}}
+        
     </view>
+  </scroll-view>
+  <view class="hx20"></view>
+  <view class="ls_li"
+    wx:for="{{index_tab}}" 
+    wx:for-index="idx" 
+    wx:for-item="item" 
+    wx:key="idx"
+    data-url="" bindtap="jump">
+    <view class="lsimg">
+      <image src="../../static/images/teacher.png"></image>
+    </view>
+    <view class="ls_msg">
+      <view class="ls_name">{{'北京海淀律所'}}</view>
+      <view class="ls_add">
+        <image src="../../static/images/address.png"></image>
+        <text>{{'北京海淀区胜利街8号'}}</text>
+      </view>
+    </view>
+    <view class="go_xq">
+        了解详情
+      </view>
+  </view>
 </view>

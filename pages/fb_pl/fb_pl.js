@@ -1,25 +1,13 @@
-// pages/kecheng_zx/kecheng_zx.js
-var htmlStatus = require('../../utils/htmlStatus/index.js')
-const app = getApp()
+// pages/fb_pl/fb_pl.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    index_tab: [
-      {
-        title: '全部'
-      },
-      {
-        title: '司法考试阶段班'
-      },
-      {
-        title: '司法考试全程班'
-      },
-    ],
-    cur: 0,
-    ffcur:0
+    msg: '',
+    num:0,
+    pf:0
   },
 
   /**
@@ -68,7 +56,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log('上拉')
+
   },
 
   /**
@@ -77,23 +65,18 @@ Page({
   onShareAppMessage: function () {
 
   },
-  qhcur(e) {
-    var that = this
-    var type = e.currentTarget.dataset.type
-    var idx = e.currentTarget.dataset.idx
-    console.log(idx)
-    if (type==1){
-      that.setData({
-        cur: idx
-      })
-    }else{
-      that.setData({
-        ffcur: idx
-      })
-    }
+  setpf(e){
+    console.log(e.currentTarget.dataset.num)
+    this.setData({
+      pf: e.currentTarget.dataset.num
+    })
   },
-
-  jump(e) {
-    app.jump(e)
-  },
+  getint(e){
+    console.log(e.detail)
+    var that =this
+    that.setData({
+      msg:e.detail.value,
+      num: e.detail.cursor
+    })
+  }
 })

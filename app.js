@@ -66,9 +66,13 @@ App({
 			})
 			return
 		}
-		wx.makePhoneCall({
-			phoneNumber: e.currentTarget.dataset.tel
-		})
+		console.log(e)
+		if(e.currentTarget.dataset.tel){
+			wx.makePhoneCall({
+				phoneNumber: e.currentTarget.dataset.tel
+			})
+		}
+		
 	},
 	data: {
 		haveLocation: false,

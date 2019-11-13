@@ -16,37 +16,42 @@
 		</swiper>
 	</view>
 	<view class="dis_flex index_type">
-		<view class="i_type_one" wx:for="{{index_type}}" wx:for-index="idx" wx:for-item="item" wx:key="idx" data-url=""
+		<view class="i_type_one" wx:for="{{index_type}}" wx:for-index="idx" wx:for-item="item" wx:key="idx" 
+    data-type="{{item.type}}"
+    data-url="{{item.url}}"
 		 bindtap="jump">
 			<image src="{{item.img}}"></image>
 			<text>{{item.name}}</text>
 		</view>
 	</view>
-	<view class="index_ggimg" data-url="" bindtap="jump">
+	<view class="index_ggimg" 
+    data-type="{{index_type[0].type}}" 
+    data-url="{{index_type[0].url}}"
+    bindtap="jump">
 		<image src="../../static/images/index13.png"></image>
 	</view>
 	<view class="zx_tit">法律咨询</view>
 	<view class="dis_flex flzx">
-		<view class="xz_one">
+		<view class="xz_one" data-url="/pages/lszx/lszx" bindtap="jump">
 			<image class="zx_one_img" src="../../static/images/xz1.png"></image>
 			<text>民事咨询</text>
 		</view>
-		<view class="xz_one">
+		<view class="xz_one" data-url="/pages/lszx/lszx" bindtap="jump">
 			<image class="zx_one_img" src="../../static/images/zx2.png"></image>
 			<text>刑事咨询</text>
 		</view>
-		<view class="xz_one">
+		<view class="xz_one" data-url="/pages/lszx/lszx" bindtap="jump">
 			<image class="zx_one_img" src="../../static/images/zx3.png"></image>
 			<text>婚姻咨询</text>
 		</view>
 	</view>
 	<view class="zx_tit">推荐课程</view>
 	<view class="dis_flex flzx">
-		<view class="xz_one">
+		<view class="xz_one" data-url="/pages/details_kc/details_kc" bindtap="jump">
 			<image class="tuijian_img" src="../../static/images/tuijian.png"></image>
 			<text>全程辅导班</text>
 		</view>
-		<view class="xz_one ">
+		<view class="xz_one " data-url="/pages/details_kc/details_kc" bindtap="jump">
 			<image class="tuijian_img" src="../../static/images/tuijian1.png"></image>
 			<text>主观题特训班</text>
 		</view>
@@ -58,8 +63,7 @@
 		  wx:for-index="idx" 
 		  wx:for-item="item" 
 		  wx:key="idx" 
-		  data-url=""
-			bindtap="jump">
+		   data-url="/pages/teacher_p/teacher_p" bindtap="jump">
 		 <image src="../../static/images/teacher.png"></image>
 		 <text>*老师</text>
 	  </view>

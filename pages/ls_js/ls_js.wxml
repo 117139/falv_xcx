@@ -1,0 +1,36 @@
+<!--pages/ls_js/ls_js.wxml-->
+<import src="/utils/htmlStatus/index.wxml" />
+<import src="../../vendor/wxParse/wxParse.wxml" />
+<wxs src="../../utils/filter.wxs" module="filter" />
+<template is="htmlStatus" data="{{...htmlStatus}}" />
+<view class="container">
+	<view class="ls_banner">
+		<image src="../../static/images/teacher.png"></image>
+	</view>
+	<view class="ls_box">
+		<view class="ls_m1">
+			<view class="ls_name">{{'北京海淀律所'}}</view>
+			<text class="iconfont iconfenxiang"></text>
+		</view>
+		<view class="ls_m2" data-tel="" bindtap='call'>
+			<text class="iconfont iconhuaban"></text>
+			<text>010-15472368</text>
+		</view>
+		<view class="ls_m2">
+			<view class="dis_flex aic">
+				<text class="iconfont icondidian"></text>
+				<text>北京市海淀区胜利街8号</text>
+			</view>
+			<text class="juli">距离12km</text>
+		</view>
+	</view>
+	<view class="hx30"></view>
+	<view class="js_tab">
+		<view class="tab_one {{cur==0?'cur':''}}" data-idx='0' bindtap="qhcur">简介</view>
+		<!-- <view class="tab_one {{cur==1?'cur':''}}" data-idx='1' bindtap="qhcur">服务项目</view>
+		<view class="tab_one {{cur==2?'cur':''}}" data-idx='2' bindtap="qhcur">评价</view> -->
+	</view>
+	<view wx:if="{{cur==0}}" class="xq_msg">
+		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+	</view>
+</view>

@@ -15,19 +15,27 @@ Page({
 	index_type:[
 		{
 			name:'业务分类',
-			img:'../../static/images/ywfl.png'
+      img: '../../static/images/ywfl.png',
+      url: '/pages/fenlei/fenlei',
+      type:'2'
 		},
 		{
 			name:'预约报名',
-			img:'../../static/images/yybm.png'
+      img: '../../static/images/yybm.png',
+      url: '/pages/baoming/baoming',
+      type: '1'
 		},
 		{
 			name:'在线课程',
-			img:'../../static/images/zxkc.png'
+      img: '../../static/images/zxkc.png',
+      url: '/pages/kecheng_zx/kecheng_zx',
+      type: '1'
 		},
 		{
 			name:'律师咨询',
-			img:'../../static/images/lszx.png'
+			img:'../../static/images/lszx.png',
+      url: '/pages/lszx/lszx',
+      type: '1'
 		},
 	],
 	indicatorDots: true,
@@ -93,7 +101,14 @@ Page({
 
   },
   jump(e){
-	  app.jump(e)
+    console.log(e.currentTarget.dataset.type)
+    if (e.currentTarget.dataset.type==2){
+      wx.switchTab({
+        url: e.currentTarget.dataset.url
+      })
+    } else {
+      app.jump(e)
+    }
   },
 	kffuc(e){
 		console.log(e)

@@ -3,44 +3,37 @@
 <wxs src="../../utils/filter.wxs" module="filter" />
 <template is="htmlStatus" data="{{...htmlStatus}}" />
 <view class="container">
-	<scroll-view scroll-x="true" class="index_scroll">
-			<view	wx:for="{{index_tab}}" 
-				wx:for-index="idx" 
-				wx:for-item="item" 
-				wx:key="idx"
-        data-type='1'
-        data-idx='{{idx}}'
-        bindtap='qhcur'
-				class="index_tab pore {{idx==cur?'icur':''}}">{{item.title}}
-         
-        </view>
-		</scroll-view>
-    <view class="fufei">
-      <view class="ff_one {{ffcur==0?'ffcur':''}}"
-        data-type='2'
-        data-idx='0'
-        bindtap='qhcur'>付费</view>
-      <view class="ff_one {{ffcur==1?'ffcur':''}}"
-        data-type='2'
-        data-idx='1'
-        bindtap='qhcur'>免费</view>
+  <scroll-view scroll-x="true" class="index_scroll">
+    <view wx:for="{{index_tab}}" wx:for-index="idx" wx:for-item="item" wx:key="idx" data-type='1' data-idx='{{idx}}' bindtap='qhcur' class="index_tab pore {{idx==cur?'icur':''}}">{{item.title}}
+
     </view>
-    <view class="ls_li"
+  </scroll-view>
+  <view class="fufei">
+    <view class="ff_one {{ffcur==0?'ffcur':''}}" 
+      data-type='2' data-idx='0' bindtap='qhcur'>付费</view>
+    <view class="ff_one {{ffcur==1?'ffcur':''}}" 
+      data-type='2' data-idx='1' bindtap='qhcur'>免费</view>
+  </view>
+  <view class="zx_banner">
+		<image src="../../static/images/zxkc_banner.png"></image>
+  </view>
+	<view class="tj_tit">为您推荐</view>
+  <view class="kc_list">
+    <view class="ls_li" 
       wx:for="{{index_tab}}" 
-      wx:for-index="idx" 
+      wx:for-index="idx"
       wx:for-item="item" 
-      wx:key="idx"
-      data-url="" bindtap="jump">
+      wx:key="idx" data-url="" bindtap="jump">
       <view class="lsimg">
         <image src="../../static/images/teacher.png"></image>
+				<view class="pri_box">
+					<view class="pri_t">￥1200</view>
+				</view>
       </view>
       <view class="ls_msg">
-        <view class="ls_name">{{'北京海淀律所'}}</view>
-        <view class="ls_add">{{'4节课'}}</view>
-        <view class="ls_add">
-          <text>{{'34人学习'}}</text>
-          <text class="cD13838">{{'¥3680'}}</text>
-        </view>
+        <view class="ls_name">{{'主观题特训'}}</view>
+        <view class="ls_add"><text class="c3879D1">{{'34'}}人</text>已学习</view>
       </view>
     </view>
+  </view>
 </view>
