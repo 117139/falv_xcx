@@ -10,7 +10,7 @@ Page({
   data: {
 		goods_id:0,
 		xqData:{},
-		cur:2,
+		cur:0,
 		index_tab: [
 			{
 				title: '律所分类'

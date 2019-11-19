@@ -397,7 +397,8 @@ view{
 }
 .xq_msg{
 	width: 100%;
-	padding: 0 30rpx 30rpx;
+	/* padding: 0 30rpx 30rpx; */
+	padding: 30rpx;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;

@@ -31,7 +31,7 @@
 			wx:for-index="idx" 
 			wx:for-item="item" 
 			wx:key="idx"
-			data-url="" bindtap="jump">
+			data-url="/pages/details_kc/details_kc" bindtap="jump">
 			<view class="lsimg">
 				<image src="../../static/images/teacher.png"></image>
 			</view>

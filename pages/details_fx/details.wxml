@@ -1,0 +1,15 @@
+<!--pages/details/details.wxml-->
+<import src="/utils/htmlStatus/index.wxml" />
+<import src="../../vendor/wxParse/wxParse.wxml" />
+<wxs src="../../utils/filter.wxs" module="filter" />
+<template is="htmlStatus" data="{{...htmlStatus}}" />
+<view class="container">
+	<view class="xq_banner">
+		<image src="../../static/images/xq_banner.png"></image>
+	</view>
+	<view class="xq_msg">
+		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+	</view>
+	<!-- <view class="yy_btn" data-url="/pages/baoming/baoming"
+			bindtap="jump">立即预约</view> -->
+</view>

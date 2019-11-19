@@ -41,7 +41,7 @@ Page({
    */
   onShow: function () {
     var that = this
-    var article = '<p style="text-align:center;margin-bottom:20px;">九洲司法考试介绍</p><p style="font-size:12px;"><br/>分校详情分校详情分校详情分校详情分校详情分校详情课程<br/>介绍分校详情分校详情课程<br/>介绍分校详情课程<br/>介绍分校详情分校详情分校详情分校详情分校详情分校详情分校详情分校详情分校详情分校详情</p>'
+    var article = '<p style="text-align:center;margin-bottom:20px;">分校介绍</p><p style="font-size:12px;"><br/>分校详情分校详情分校详情分校详情分校详情分校详情课程<br/>介绍分校详情分校详情课程<br/>介绍分校详情课程<br/>介绍分校详情分校详情分校详情分校详情分校详情分校详情分校详情分校详情分校详情分校详情</p>'
     var subStr = new RegExp('<div>&nbsp;</div>', 'ig');
     article = article.replace(subStr, "<text style='margin-bottom:1em;'></text>");
     WxParse.wxParse('article', 'html', article, that, 5);

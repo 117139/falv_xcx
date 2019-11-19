@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/fenxiao/fenxiao",
+    "pages/details_fx/details",
+    "pages/details/details",
     "pages/fb_pl/fb_pl",
     "pages/my_yy/my_yy",
     "pages/details_kc/details_kc",
@@ -8,7 +11,6 @@
     "pages/baoming/baoming",
     "pages/ls_list/ls_list",
     "pages/ls_js/ls_js",
-    "pages/details/details",
     "pages/kecheng_zx/kecheng_zx",
     "pages/kecheng_zx1/kecheng_zx",
     "pages/zxjs/zxjs", 
@@ -45,7 +47,7 @@
         "selectedIconPath": "/static/images/btn21.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/fenxiao/fenxiao",
         "text": "分校",
         "iconPath": "/static/images/btn3.png",
         "selectedIconPath": "/static/images/btn31.png"
