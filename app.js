@@ -1,44 +1,146 @@
 //app.js
 App({
+	IPurl: 'http://huayingworld.800123456.top/',
+	IPurl1:'http://huayingworld.800123456.top/',
 	onLaunch: function() {
-		// 展示本地存储能力
-		var logs = wx.getStorageSync('logs') || []
-		logs.unshift(Date.now())
-		wx.setStorageSync('logs', logs)
-
-		// 登录
-		wx.login({
-			success: res => {
-				console.log(res.code)
-				// 发送 res.code 到后台换取 openId, sessionKey, unionId
-			}
-		})
+		let that=this
+		wx.removeStorageSync('userInfo')
+		wx.removeStorageSync('tokenstr')
 		// 获取用户信息
 		wx.getSetting({
-			success: res => {
-				if (res.authSetting['scope.userInfo']) {
-					// 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+		  success: res => {
+		    // console.log('16app'+JSON.stringify(res))
+		    // console.log(res.authSetting['scope.userInfo'])
+		    if (res.authSetting['scope.userInfo']==true) {
+		      // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+		      console.log('已经授权')
 					wx.getUserInfo({
-						success: res => {
-							// 可以将 res 发送给后台解码出 unionId
-							this.globalData.userInfo = res.userInfo
-
-							// 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-							// 所以此处加入 callback 以防止这种情况
-							if (this.userInfoReadyCallback) {
-								this.userInfoReadyCallback(res)
+						success(res) {
+							that.globalData.userInfo = res.userInfo
+							console.log(that.globalData.userInfo)
+							wx.setStorageSync('userInfo', res.userInfo)
+							if(!that.globalData.userInfo){
+							
+							}else{
+		            wx.login({
+		              success: function (res) {
+		                // 发送 res.code 到后台换取 openId, sessionKey, unionId
+		                var uinfo = that.globalData.userInfo
+		                let data = {
+		                  code: res.code,
+		                  nickname: uinfo.nickName,
+		                  avatarurl: uinfo.avatarUrl
+		                }
+		                let rcode = res.code
+		                console.log(res.code)
+		                wx.request({
+		                  url: that.IPurl+'/api/appletLogin',
+		                  data: data,
+		                  header: {
+		                    'content-type': 'application/x-www-form-urlencoded'
+		                  },
+		                  dataType: 'json',
+		                  method: 'POST',
+		                  success(res) {
+		                    console.log(res.data)
+		                    if (res.data.code == 1) {
+		                      console.log('登录成功')
+                          wx.setStorageSync('tokenstr', res.data.data.userToken)
+		                    } else {
+		                      wx.removeStorageSync('userInfo')
+		                      wx.removeStorageSync('tokenstr')
+		                      wx.showToast({
+		                        icon: 'none',
+		                        title: '登录失败',
+		                      })
+		                    }
+		
+		                  },
+		                  fail() {
+		                    wx.showToast({
+		                      icon: 'none',
+		                      title: '登录失败'
+		                    })
+		                  }
+		                })
+		              }
+		            })
 							}
 						}
 					})
-				}
-			}
+					
+		    }else{
+				  
+		    }
+		  }
 		})
 	},
+  dologin(type) {
+    let that = this
+    wx.login({
+      success: function (res) {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        var uinfo = that.globalData.userInfo
+        let data = {
+          code: res.code,
+          nickname: uinfo.nickName,
+          avatarurl: uinfo.avatarUrl
+        }
+        let rcode = res.code
+        console.log(res.code)
+        wx.request({
+          url: that.IPurl + '/api/appletLogin',
+          data: data,
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          dataType: 'json',
+          method: 'POST',
+          success(res) {
+            console.log(res.data)
+            if (res.data.code == 1) {
+              console.log('登录成功')
+              wx.setStorageSync('tokenstr', res.data.data.userToken)
+              if (type == 'shouquan') {
+                wx.navigateBack()
+              }
+
+
+
+            } else {
+              wx.removeStorageSync('userInfo')
+              wx.removeStorageSync('tokenstr')
+              wx.showToast({
+                icon: 'none',
+                title: '登录失败',
+              })
+            }
+
+          },
+          fail() {
+            wx.showToast({
+              icon: 'none',
+              title: '登录失败'
+            })
+          }
+        })
+      }
+    })
+  },
+
 	globalData: {
 		userInfo: null
 	},
 	jump(e) {
 		console.log(e)
+    if (e.currentTarget.dataset.quanxian){
+      if (!wx.getStorageSync('userInfo')) {
+        wx.navigateTo({
+          url: '/pages/login/login',
+        })
+        return
+      }
+    }
 		if(e.currentTarget.dataset.url){
 			wx.navigateTo({
 				url: e.currentTarget.dataset.url

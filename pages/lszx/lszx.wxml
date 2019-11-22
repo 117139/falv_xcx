@@ -6,31 +6,14 @@
   <view class="zx_banner" data-url="" bindtap="jump">
     <image src="../../static/images/zx_banner.png"></image>
   </view>
-  <view class="zx_li" data-url="/pages/zxjs/zxjs" bindtap="jump">
+  <view class="zx_li" data-url="/pages/zxjs/zxjs?id={{item.id}}" bindtap="jump"
+  wx:for="{{homeSeek}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
     <view class=" zx_img">
-      <image src="../../static/images/lszx1.png"></image>
+      <image src="{{filter.imgIP(item.pic)}}"></image>
     </view>
     <view class="zx_msg">
-      <view class="zx_tit">{{'民事咨询'}}</view>
-      <view class="zx_inr">{{'套用模型省时省力，不用冥思苦想，但是每一个需要设计的内容和体系应该是'}}</view>
-    </view>
-  </view>
-  <view class="zx_li" data-url="/pages/zxjs/zxjs" bindtap="jump">
-    <view class=" zx_img">
-      <image src="../../static/images/lszx2.png"></image>
-    </view>
-    <view class="zx_msg">
-      <view class="zx_tit">{{'刑事咨询'}}</view>
-      <view class="zx_inr">{{'套用模型省时省力，不用冥思苦想，但是每一个需要设计的内容和体系应该是'}}</view>
-    </view>
-  </view>
-  <view class="zx_li" data-url="/pages/zxjs/zxjs" bindtap="jump">
-    <view class=" zx_img">
-      <image src="../../static/images/lszx3.png"></image>
-    </view>
-    <view class="zx_msg">
-      <view class="zx_tit">{{'婚姻咨询'}}</view>
-      <view class="zx_inr">{{'套用模型省时省力，不用冥思苦想，但是每一个需要设计的内容和体系应该是'}}</view>
+      <view class="zx_tit">{{item.title}}</view>
+      <view class="zx_inr">{{item.desc}}</view>
     </view>
   </view>
 </view>

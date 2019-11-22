@@ -39,6 +39,7 @@ page{
 	height: 130rpx;
 	border-radius: 50%;
 	margin-right: 19rpx;
+  overflow: hidden;
 }
 .my_tx image{
 	width: 100%;

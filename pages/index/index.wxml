@@ -6,10 +6,10 @@
 	<view class="banner_box">
 		<swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
 		 indicator-active-color='#fff' circular="{{circular}}">
-			<block wx:for="{{bannerimg}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+			<block wx:for="{{banner}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
 				<swiper-item class="swiper_item">
-					<!-- <image wx:if="{{item}}" lazy-load='true' src="{{filter.imgIP(item)}}" class="slide-image" /> -->
-					<image wx:if="{{item}}" lazy-load='true' src="{{item}}" class="slide-image" />
+					<image mode="aspectFill" wx:if="{{item}}" lazy-load='true' src="{{filter.imgIP(item.url)}}" class="slide-image" />
+					<!-- <image lazy-load='true' src="{{item.url}}" class="slide-image" /> -->
 
 				</swiper-item>
 			</block>
@@ -19,53 +19,45 @@
 		<view class="i_type_one" wx:for="{{index_type}}" wx:for-index="idx" wx:for-item="item" wx:key="idx" 
     data-type="{{item.type}}"
     data-url="{{item.url}}"
+    data-quanxian="{{item.quanxian}}"
 		 bindtap="jump">
 			<image src="{{item.img}}"></image>
 			<text>{{item.name}}</text>
 		</view>
 	</view>
 	<view class="index_ggimg" 
-    data-type="{{index_type[0].type}}" 
-    data-url="{{index_type[0].url}}"
+    data-url="{{'/pages/ls_list/ls_list'}}"
     bindtap="jump">
 		<image src="../../static/images/index13.png"></image>
 	</view>
 	<view class="zx_tit">法律咨询</view>
 	<view class="dis_flex flzx">
-		<view class="xz_one" data-url="/pages/lszx/lszx" bindtap="jump">
-			<image class="zx_one_img" src="../../static/images/xz1.png"></image>
-			<text>民事咨询</text>
-		</view>
-		<view class="xz_one" data-url="/pages/lszx/lszx" bindtap="jump">
-			<image class="zx_one_img" src="../../static/images/zx2.png"></image>
-			<text>刑事咨询</text>
-		</view>
-		<view class="xz_one" data-url="/pages/lszx/lszx" bindtap="jump">
-			<image class="zx_one_img" src="../../static/images/zx3.png"></image>
-			<text>婚姻咨询</text>
+		<view class="xz_one" data-url="/pages/zxjs/zxjs?id={{item.id}}" bindtap="jump"
+    wx:for="{{homeSeek}}" wx:for-index="idx" wx:for-item="item" wx:key="idx" >
+			<view class="zx_one_img">
+        <image src="{{filter.imgIP(item.url)}}"></image>
+      </view>
+			<text>{{item.title}}</text>
 		</view>
 	</view>
 	<view class="zx_tit">推荐课程</view>
 	<view class="dis_flex flzx">
-		<view class="xz_one" data-url="/pages/details_kc/details_kc" bindtap="jump">
-			<image class="tuijian_img" src="../../static/images/tuijian.png"></image>
-			<text>全程辅导班</text>
-		</view>
-		<view class="xz_one " data-url="/pages/details_kc/details_kc" bindtap="jump">
-			<image class="tuijian_img" src="../../static/images/tuijian1.png"></image>
-			<text>主观题特训班</text>
+		<view class="xz_one" data-url="/pages/details_kc/details_kc?id={{item.id}}" bindtap="jump"
+    wx:for="{{homeVideo}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+			<image mode="aspectFill" class="tuijian_img" src="{{filter.imgIP(item.url)}}"></image>
+			<text>{{item.title}}</text>
 		</view>
 	</view>
   <view class="zx_tit">师资力量</view>
   <scroll-view class='teacher_Box' scroll-x>
 	  <view class="teacher_one"  
-		  wx:for="{{index_type}}" 
+		  wx:for="{{homeTeacher}}" 
 		  wx:for-index="idx" 
 		  wx:for-item="item" 
 		  wx:key="idx" 
-		   data-url="/pages/teacher_p/teacher_p" bindtap="jump">
-		 <image src="../../static/images/teacher.png"></image>
-		 <text>*老师</text>
+		   data-url="/pages/teacher_p/teacher_p?id={{item.id}}" bindtap="jump">
+		 <image mode="aspectFill" src="{{filter.imgIP(item.url)}}"></image>
+		 <text>{{item.name}}</text>
 	  </view>
 	</scroll-view>
 	<view class="zxkf_btn">

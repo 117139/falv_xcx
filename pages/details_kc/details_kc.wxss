@@ -1,4 +1,7 @@
 /* pages/details_kc/details_kc.wxss */
+.container{
+  padding-bottom: 200rpx;
+}
 .ls_banner{
 	width: 100%;
 	height: 600rpx;
@@ -158,4 +161,30 @@
 }
 .pl_uname{
 	margin-right: 30rpx;
+}
+
+
+
+.footer_f{
+  position: fixed;
+  bottom: 0;
+  left:0;
+	right: 0;
+	display: flex;
+	justify-content: space-between;
+	
+}
+.footer_f>view{
+	flex: 1;
+	height: 100rpx;
+	background: #F6F6F6;
+	color:#D13838;
+	font-size: 34rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.footer_f>.zx_btn{
+	background: #D13838;
+	color: #fff;
 }

@@ -5,14 +5,17 @@
 <template is="htmlStatus" data="{{...htmlStatus}}" />
 <view class="container">
 	<view class="ls_banner">
-		<video src="http://tb-video.bdstatic.com/tieba-smallvideo-transcode-cae/3721866_1fa5e31aad50cf3eb3b9dd3288cebdae_0_cae.mp4"></video>
+		<video src="{{getgimg.imgIP(xqData.url)}}"></video>
 	</view>
 	<view class="ls_box">
 		<view class="ls_m1">
-			<view class="ls_name">{{'****老师'}}</view>
-			<text class="iconfont iconfenxiang"></text>
+			<view class="ls_name">{{xqData.title}}</view>
+			<text class="iconfont iconfenxiang"  catchtap="listenerButton">
+        <!-- <text class="iconfont iconfenxiang"> -->
+        <!-- <button open-type="share">分享给好友</button> -->
+      </text>
 		</view>
-		<view class="teacher_js">{{'毕业于中国政法大学，教师简介教师简介教师简介教师简介教师简介教师简介教师简介'}}</view>
+		<view class="teacher_js">{{xqData.desc}}</view>
 	</view>
 	<view class="hx30"></view>
 	<view class="js_tab">
@@ -21,21 +24,21 @@
 		<view class="tab_one {{cur==2?'cur':''}}" data-idx='2' bindtap="qhcur">评价</view>
 	</view>
 	<view wx:if="{{cur==0}}" class="xq_msg">
-		<view class="tab_tit">教师简介</view>
+		<view class="tab_tit">课程简介</view>
 		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
 	
 		<view class="tab_tit">课程展示</view>
 		<view class="ls_li"
-			wx:for="{{index_tab}}" 
+			wx:for="{{xqData.knobList}}" 
 			wx:for-index="idx" 
 			wx:for-item="item" 
 			wx:key="idx"
-			data-url="" bindtap="jump">
+			data-url="/pages/details_kc/details_kc?id={{id}}&knob={{item.knob}}" bindtap="jump">
 			<view class="lsimg">
-				<image src="../../static/images/teacher.png"></image>
+				<image mode="aspectFill" src="../../static/images/spfm.png"></image>
 			</view>
 			<view class="ls_msg">
-				<view class="ls_name">{{'司法考试全程题'}}</view>
+				<view class="ls_name">{{item.title}}</view>
 				<!-- <view class="ls_add">
 					<text class="cD13838">{{'1344'}}人</text>
 					<text>已学习</text>
@@ -49,29 +52,60 @@
 	<view wx:if="{{cur==2}}" class="xq_msg">
 		<view class="tab_tit">
 			<text>用户评价</text>
-			<text class="go_pl" data-url="/pages/fb_pl/fb_pl" bindtap='jump'>发表评价</text>
+			<text class="go_pl" data-url="/pages/fb_pl/fb_pl?type=1&id={{id}}" bindtap='jump'>发表评价</text>
 		</view>
-		<view class="pl_li" wx:for="{{index_tab}}" 
+    <view wx:if='{{xqData.comment.length==0}}' class="zanwu">暂无数据</view>
+	<view class="pl_li" wx:for="{{xqData.comment}}" 
 			wx:for-index="idx" 
 			wx:for-item="item" 
 			wx:key="idx">
 			<view class="pl_tx">
-				<image src="../../static/images/teacher.png"></image>
+				<image  mode="aspectFill" src="{{item.url}}"></image>
 			</view>
 			<view class="pl_msg">
 				<view class="pl_pf">
-					<text  class="iconfont {{1==1?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
-					<text  class="iconfont {{1==1?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
-					<text  class="iconfont {{1==1?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
-					<text  class="iconfont {{1==1?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
-					<text  class="iconfont {{1==0?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
+					<text  class="iconfont {{item.score>=1?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
+					<text  class="iconfont {{item.score>=2?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
+					<text  class="iconfont {{item.score>=3?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
+					<text  class="iconfont {{item.score>=4?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
+					<text  class="iconfont {{item.score==5?'icontubiaozhizuomoban-':'iconwujiaoxingxingxing'}}"></text>
 				</view>
-				<view class="pl_pl">{{'课程非常好很实用'}}</view>
+				<view class="pl_pl">{{item.content}}</view>
 				<view class="pl_user">
-					<text class="pl_uname">{{'党颖'}}</text>
-					<text>{{'2019-4-26'}}</text>
+					<text class="pl_uname">{{item.nickname}}</text>
+					<text>{{item.create_time}}</text>
 				</view>
 			</view>
 		</view>
+    
+	</view>
+  <view class="footer_f">
+      <view class="zx_pri">{{'￥'+xqData.price}}</view>
+      <view class="zx_btn" bindtap="zhifu">立即学习</view>
+  </view>
+  <action-sheet hidden="{{actionSheetHidden}}" bindchange="listenerActionSheet">
+		<action-sheet-item>
+			<button open-type="share">分享给好友</button>
+			分享给好友
+		</action-sheet-item>
+		<action-sheet-item>
+			<button catchtap="getTempFilePath1">生成分享卡片</button>
+			生成分享卡片
+		</action-sheet-item>
+		<action-sheet-cancel>取消</action-sheet-cancel>
+	</action-sheet>
+	<van-popup show="{{ showcan }}" bind:close="onClosecanvas">
+		<view class="tcc">
+			<image class="showimg" src="{{shareTempFilePath}}"></image>
+			<view wx:if="{{writePhotosAlbum}}" class="saveimg" bindtap="getTempFilePath">保存图片</view>
+      <view wx:else class="saveimg">
+        <button open-type="openSetting">保存图片</button>
+        保存图片
+      </view>
+			
+		</view>
+	</van-popup>
+	<view class="hiddenbox">
+		<canvas canvas-id='share' class="htoi"></canvas>
 	</view>
 </view>

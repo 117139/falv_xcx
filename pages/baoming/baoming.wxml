@@ -14,34 +14,49 @@
       <view class="fli_sx"></view>
       <input class="fli_int" name="tel" type="text" placeholder="请输入您的手机号"></input>
     </view>
+     <!-- end="{{date1?date1:'2019-11-01'}}" -->
     <picker class="w100" mode="date" value="{{date}}" 
     start="2019-10-01" 
-    end="{{date1?date1:'2019-11-01'}}"
+   
     data-idx='1' bindchange="bindDateChange">
     <view class="f_li">
       <view class="fli_name">预约时间</view>
       <view class="fli_sx"></view>
-      <input class="fli_int" name="time1" disabled type="text" value="{{date}}" placeholder="点击选择预约时间(开始)"></input>
+      <input class="fli_int" name="time1" disabled type="text" value="{{date}}" placeholder="点击选择预约时间"></input>
     </view>
     </picker>
-    <picker class="w100" mode="date" value="{{date1}}" 
+    <!-- <picker class="w100" mode="date" value="{{date1}}" 
       start="{{date?date:'2019-11-01'}}" data-idx='2' bindchange="bindDateChange">
     <view class="f_li">
       <view class="fli_name">预约时间</view>
       <view class="fli_sx"></view>
       <input class="fli_int" name="time2" disabled type="text" value="{{date1}}" placeholder="点击选择预约时间(结束)"></input>
     </view>
-    </picker>
+    </picker> -->
     <picker class="w100" bindchange="bindDateChange" data-idx='3' value="{{index}}" 
-    range-key="name" range="{{array}}">
+    range-key="name" range="{{cate}}">
+    <view class="f_li">
+      <view class="fli_name">预约分类</view>
+      <view class="fli_sx"></view>
+      <input class="fli_int" disabled type="text" value="{{cate[index].name}}" placeholder="点击选择分类"></input>
+      <input class="hidden" name="xm" disabled type="text" value="{{cate[index].id}}" placeholder="点击选择分类"></input>
+    </view>
+    </picker>
+    <picker class="w100" bindchange="bindDateChange" data-idx='4' value="{{index}}" 
+    range-key="title" range="{{BusinessModel}}">
     <view class="f_li">
       <view class="fli_name">预约项目</view>
       <view class="fli_sx"></view>
-      <input class="fli_int" name="xm" disabled type="text" value="{{array[index].name}}" placeholder="点击选择项目"></input>
+      <input class="fli_int" disabled type="text" value="{{BusinessModel[index1].title}}" placeholder="点击选择项目"></input>
+      <input class="hidden" name="xm2" disabled type="text" value="{{BusinessModel[index1].id}}" placeholder="点击选择项目"></input>
     </view>
     </picker>
     <view class="other">其他补充</view>
     <textarea class="f_area" name="other" placeholder="请简单叙述下您的问题"></textarea>
-    <button class="sub_btn" formType="submit">立即预约</button>
+    <!-- <view class="yy_btn">
+      立即预约 -->
+        <button class="sub_btn" formType="submit">立即预约</button>
+    <!-- </view> -->
+   
   </view>
 </form>

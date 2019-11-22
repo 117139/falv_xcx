@@ -1,4 +1,6 @@
 /**app.wxss**/
+
+@import 'vendor/wxParse/wxParse.wxss';
 @font-face {
     font-family:"iconfont";
     src: url('//at.alicdn.com/t/font_1506783_dqpogk2h22u.eot?t=1573633148848');
@@ -16,6 +18,8 @@
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    display: inline-flex;
+    position: relative;
 }
 .icondidian:before {
     content:"\e63a";
@@ -402,6 +406,8 @@ view{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+  word-wrap:break-word;
+  word-break:break-all;
 }
 .pl_pf .iconfont{
 	color: #D13838;
@@ -409,4 +415,191 @@ view{
 }
 .pl_pf .iconwujiaoxingxingxing{
 	color: #666;
+}
+
+
+
+
+
+/**/
+/***/
+.popopBox{
+	width: 100%;
+	padding: 20rpx 28rpx 0;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 150rpx;
+	height: auto;
+}
+.popopBox1{
+	width: 100%;
+	display: flex;
+}
+.goodsimg{
+	margin-top: 16rpx;
+	width: 246rpx;
+	height: 246rpx;
+	border:1rpx solid #d2d2d2;
+	border-radius: 16rpx;
+	overflow: hidden;
+	margin-right: 30rpx;
+}
+.goodstkjg{
+	flex: 1;
+	position: relative;
+}
+.closebtn{
+	width: 37rpx;
+	height: 37rpx;
+	border-radius: 50%;
+	border: 1px solid #dddddd;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.tkpri{
+	font-size: 34rpx;
+	color: #f75852;
+	margin: 80rpx 0 25rpx;
+}
+.tkname{
+	display:-webkit-box !important;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	word-break:break-all;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:2;
+	line-height: 45rpx;
+	font-size: 24rpx;
+	color: #333;
+}
+.tkguigetit{
+	font-size: 26rpx;
+	color: #333;
+	padding: 20rpx 0 20rpx;
+}
+.guigeBox{
+	display: felx;
+	align-items: center;
+}
+.guigeOne{
+	/* width: 114rpx; */
+	height: 50rpx;
+	padding: 0 10rpx;
+	border-radius: 8rpx;
+	border: 1px solid #ddd;
+	font-size: 26rpx;
+	color: #333;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 10rpx;
+  margin-bottom: 10rpx;
+}
+.guigeOne.cur{
+	border: 1px solid #f75852;
+	color: #f75852;
+}
+.countnum{
+	display: flex;
+	justify-content: space-between;
+	font-size: 26rpx;
+	color: #333;
+	margin-top: 20rpx;
+  padding-bottom:60rpx; 
+}
+.czbtnG{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: flex;
+}
+.czbtnG .jrgwc,.czbtnG .buybtn{
+	width: 375rpx;
+}
+.shuxian{
+	width: 1px;
+	height: 90rpx;
+	margin: 0 15rpx;
+	background-color: #eeeeee;
+}
+.contbox{
+	width: 100%;
+	padding: 10rpx 28rpx;
+	box-sizing: border-box;
+  background-color:#fff;
+}
+
+
+
+.tcc{
+	width: 80vw;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.hiddenbox{
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	opacity: 0;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
+}
+
+.htoi{
+	position: relative;
+	width:750px;height:1206px;
+	/* box-shadow:4rpx 4rpx 8rpx rgba(0,0,0,0.5); */
+	/* margin-top: 20px; */
+	/* transform:scale(.5); */
+	opacity: 0;
+	z-index: -1;
+}
+.showimg{
+	width: 375rpx;
+	height: 603rpx;
+	margin-top: 20px;
+	background-color: #eee;
+}
+.saveimg{
+	width: 300rpx;
+	height: 100rpx;
+	border-radius: 50rpx;
+	background: #f75852;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	margin-top: 40rpx;
+	margin-bottom: 20px;
+  position: relative;
+}
+action-sheet-item{
+	padding: 0!important;
+	position: relative;
+	height: 100rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+action-sheet-item button {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: #fff!important;
+	opacity: 0;
+}
+.guige{
+	position: relative;
 }

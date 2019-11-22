@@ -1,10 +1,10 @@
 <!--pages/kecheng_zx/kecheng_zx.wxml-->
 <import src="/utils/htmlStatus/index.wxml" />
 <wxs src="../../utils/filter.wxs" module="filter" />
-<template is="htmlStatus" data="{{...htmlStatus}}" />
+
 <view class="container">
   <scroll-view scroll-x="true" class="index_scroll">
-    <view wx:for="{{index_tab}}" wx:for-index="idx" wx:for-item="item" wx:key="idx" data-type='1' data-idx='{{idx}}' bindtap='qhcur' class="index_tab pore {{idx==cur?'icur':''}}">{{item.title}}
+    <view wx:for="{{sourceType}}" wx:for-index="idx" wx:for-item="item" wx:key="idx" data-type='1' data-id='{{item.id}}' data-idx='{{idx}}' bindtap='qhcur' class="index_tab pore {{idx==cur?'icur':''}}">{{item.name}}
 
     </view>
   </scroll-view>
@@ -20,20 +20,22 @@
 	<view class="tj_tit">为您推荐</view>
   <view class="kc_list">
     <view class="ls_li" 
-      wx:for="{{index_tab}}" 
+      wx:for="{{recommend}}" 
       wx:for-index="idx"
       wx:for-item="item" 
-      wx:key="idx" data-url="" bindtap="jump">
+      wx:key="idx" data-url="/pages/details_kc/details_kc?id={{item.id}}" bindtap="jump">
       <view class="lsimg">
-        <image src="../../static/images/teacher.png"></image>
+        <image mode="aspectFill" src="{{filter.imgIP(item.pic)}}"></image>
 				<view class="pri_box">
-					<view class="pri_t">￥1200</view>
+					<view class="pri_t">￥{{item.price}}</view>
 				</view>
       </view>
       <view class="ls_msg">
-        <view class="ls_name">{{'主观题特训'}}</view>
-        <view class="ls_add"><text class="c3879D1">{{'34'}}人</text>已学习</view>
+        <view class="ls_name">{{item.title}}</view>
+        <view class="ls_add"><text class="c3879D1">{{item.buy_sum}}人</text>已学习</view>
       </view>
     </view>
   </view>
+  
 </view>
+<template is="htmlStatus" data="{{...htmlStatus}}" />

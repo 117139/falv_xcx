@@ -4,20 +4,21 @@
 <template is="htmlStatus" data="{{...htmlStatus}}" />
 <view class="container">
   <scroll-view scroll-x="true" class="index_scroll">
-    <view wx:for="{{index_tab}}" wx:for-index="idx" wx:for-item="item" wx:key="idx" data-type='1' data-idx='{{idx}}' bindtap='qhcur' class="index_tab pore {{idx==cur?'icur':''}}">{{item.title}}
+    <view wx:for="{{cate}}" wx:for-index="idx" wx:for-item="item" wx:key="idx" data-id="{{item.id}}" data-idx='{{idx}}' bindtap='qhcur' class="index_tab pore {{idx==cur?'icur':''}}">{{item.name}}
 
     </view>
   </scroll-view>
   <view class="fx_list">
     <view class="fx_li"
-      wx:for="{{index_tab}}"
+      wx:for="{{brochureModel}}"
       wx:for-index="idx"
       wx:for-item="item"
       wx:key="idx"
-      data-url="/pages/details_fx/details"
+      data-url="/pages/details_fx/details?id={{item.id}}"
       bindtap="jump">
+      <!-- <image src="{{filter.imgIP(item.pic)}}"></image> -->
       <view class="fx_li_tit">
-        香港分校招生简章
+       {{item.name}}
       </view>
     </view>
   </view>

@@ -7,27 +7,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    index_tab: [
-      {
-        title: '律所分类'
-      },
-      {
-        title: '律所分类'
-      },
-      {
-        title: '律所分类'
-      },
-    ],
-    cur:0
+    cur: 0,
+    cate_id: '',
+    page: '',
+    cate: '',
+    law: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.retry()
   },
 
+  retry() {
+    this.setData({
+      page: 1
+    })
+    this.getdata()
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -60,14 +59,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.retry()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getdata()
   },
 
   /**
@@ -76,16 +75,91 @@ Page({
   onShareAppMessage: function () {
 
   },
-  qhcur(e){
-    var that =this
+  getdata() {
+    ///api/homeIndex
+    var that = this
+    const htmlStatus1 = htmlStatus.default(that)
+    wx.request({
+      url: app.IPurl + '/api/lawList',
+      data: {
+        cate_id: that.data.cate_id,
+        page: that.data.page,
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      dataType: 'json',
+      method: 'get',
+      success(res) {
+        // 停止下拉动作
+        wx.stopPullDownRefresh();
+        htmlStatus1.finish()
+        console.log(res.data)
+        if (res.data.code == 1) {  //数据为空
+          if (that.data.page == 1) {
+            that.setData({
+              cate: res.data.data.cate,
+              law: res.data.data.law.data
+            })
+          } else {
+
+            that.data.law = that.data.law.concat(res.data.data.law.data)
+            that.setData({
+              law: res.data.data.law.data
+            })
+          }
+          if (res.data.data.law.data.length > 0) {
+            that.data.page++
+            that.setData({
+              page: that.data.page
+            })
+          } else {
+            if (that.data.page > 1) {
+              wx.showToast({
+                icon: 'none',
+                title: '到底了...',
+              })
+            } else {
+              htmlStatus1.dataNull()    // 切换为空数据状态
+            }
+          }
+
+        } else {
+          htmlStatus1.error()
+          wx.showToast({
+            icon: 'none',
+            title: '加载失败'
+          })
+
+        }
+      },
+      fail() {
+        // 停止下拉动作
+        wx.stopPullDownRefresh();
+        htmlStatus1.error()
+        wx.showToast({
+          icon: 'none',
+          title: '加载失败'
+        })
+
+      },
+      complete() {
+        // // 停止下拉动作
+        // wx.stopPullDownRefresh();
+      }
+    })
+  },
+  qhcur(e) {
+    var that = this
     var idx = e.currentTarget.dataset.idx
     console.log(idx)
     that.setData({
-      cur:idx
+      cur: idx,
+      cate_id: e.currentTarget.dataset.id
     })
+    that.retry()
   },
-
   jump(e) {
     app.jump(e)
-  },
+  }
 })

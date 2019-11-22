@@ -60,5 +60,11 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-stepper": "vendor/vant/lib/stepper/index",
+    "van-submit-bar": "vendor/vant/lib/submit-bar/index",
+    "van-popup": "vendor/vant/lib/popup/index",
+    "van-action-sheet": "vendor/vant/lib/action-sheet/index"
+  }
 }

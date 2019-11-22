@@ -4,16 +4,20 @@
 		<image class="mybg" src="../../static/images/mybg.png"></image>
 		<view class="my_h_box">
 			<view class="my_tx">
-				<image src="../../static/images/tx.png"></image>
+      <image wx:if="{{!tokenstr}}" class="user_tx" src="/static/images/tx.jpg" data-url="/pages/login/login" bindtap='jump'></image>
+      <image wx:if="{{tokenstr}}" class="user_tx" src='{{userInfo.avatarUrl}}'></image>
+				<!-- <image src="../../static/images/tx.png"></image> -->
 			</view>
-			<view class="my_name">{{'全网营销'}}</view>
+      <view wx:if="{{tokenstr}}" class="my_name">{{userInfo.nickName}}</view>
+		<view wx:else class="my_name"
+    data-url="/pages/login/login" bindtap='jump'>点击登录</view>
 			<!-- <view class="myset">
 				<image src="../../static/images/myset.png"></image>
 			</view> -->
 		</view>
 	</view>
 	<view class="my_list">
-		<view class="my_li" data-url="/pages/my_kc/my_kc"
+		<view class="my_li" data-quanxian='1' data-url="/pages/my_kc/my_kc"
 			bindtap="jump">
 			<view class="my_icon">
 				<image src="../../static/images/mykc.png"></image>
@@ -21,7 +25,7 @@
 			<view class="my_li_name">我的课程</view>
 			<image class="my_li_next" src="../../static/images/next1.png"></image>
 		</view>
-		<view class="my_li" data-url="/pages/my_yy/my_yy"
+		<view class="my_li" data-quanxian='1' data-url="/pages/my_yy/my_yy"
 			bindtap="jump">
 			<view class="my_icon">
 				<image src="../../static/images/myyy.png"></image>

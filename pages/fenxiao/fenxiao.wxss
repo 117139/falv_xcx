@@ -61,6 +61,15 @@ page{
   border-radius:8px;
   margin-right: 20rpx;
   margin-bottom: 20rpx;
+  position: relative;
+}
+.fx_li image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1
 }
 .fx_li:nth-child(2n){
   margin-right: 0;
@@ -68,4 +77,6 @@ page{
 .fx_li_tit{
   width:4em;
   text-align: center;
+  position: relative;
+  z-index: 5
 }

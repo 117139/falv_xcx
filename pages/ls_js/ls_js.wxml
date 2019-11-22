@@ -5,23 +5,23 @@
 <template is="htmlStatus" data="{{...htmlStatus}}" />
 <view class="container">
 	<view class="ls_banner">
-		<image src="../../static/images/teacher.png"></image>
+		<image src="{{filter.imgIP(xqData.pic)}}"></image>
 	</view>
 	<view class="ls_box">
 		<view class="ls_m1">
-			<view class="ls_name">{{'北京海淀律所'}}</view>
-			<text class="iconfont iconfenxiang"></text>
+			<view class="ls_name">{{xqData.name}}</view>
+			<text class="iconfont iconfenxiang" catchtap="listenerButton"></text>
 		</view>
-		<view class="ls_m2" data-tel="" bindtap='call'>
+		<view class="ls_m2" data-tel="{{xqData.phone}}" bindtap='call'>
 			<text class="iconfont iconhuaban"></text>
-			<text>010-15472368</text>
+			<text>{{xqData.phone}}</text>
 		</view>
 		<view class="ls_m2">
 			<view class="dis_flex aic">
 				<text class="iconfont icondidian"></text>
-				<text>北京市海淀区胜利街8号</text>
+				<text>{{xqData.address}}</text>
 			</view>
-			<text class="juli">距离12km</text>
+			<text class="juli">{{''}}</text>
 		</view>
 	</view>
 	<view class="hx30"></view>
@@ -32,5 +32,30 @@
 	</view>
 	<view wx:if="{{cur==0}}" class="xq_msg">
 		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+	</view>
+  <action-sheet hidden="{{actionSheetHidden}}" bindchange="listenerActionSheet">
+		<action-sheet-item>
+			<button open-type="share">分享给好友</button>
+			分享给好友
+		</action-sheet-item>
+		<action-sheet-item>
+			<button catchtap="getTempFilePath1">生成分享卡片</button>
+			生成分享卡片
+		</action-sheet-item>
+		<action-sheet-cancel>取消</action-sheet-cancel>
+	</action-sheet>
+	<van-popup show="{{ showcan }}" bind:close="onClosecanvas">
+		<view class="tcc">
+			<image class="showimg" src="{{shareTempFilePath}}"></image>
+			<view wx:if="{{writePhotosAlbum}}" class="saveimg" bindtap="getTempFilePath">保存图片</view>
+      <view wx:else class="saveimg">
+        <button open-type="openSetting">保存图片</button>
+        保存图片
+      </view>
+			
+		</view>
+	</van-popup>
+	<view class="hiddenbox">
+		<canvas canvas-id='share' class="htoi"></canvas>
 	</view>
 </view>

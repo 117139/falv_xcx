@@ -1,4 +1,4 @@
-var imgip ='http://smwx.800123456.top/'
+var imgip ='http://huayingworld.800123456.top/'
 // filter.wxs
 var dateFormat = function(date) {
     var dates = date.split('/');

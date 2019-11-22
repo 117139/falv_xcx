@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-		goods_id:0,
+		id:0,
 		xqData:{},
   },
 
@@ -21,13 +21,13 @@ Page({
         title: '加载中'
       })
       this.setData({
-        goods_id:options.id
+        id:options.id
       })
       this.getDetails(options.id)
     }
   },
 	retry: function () {
-    this.getDetails(this.data.goods_id)
+    this.getDetails()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -40,11 +40,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this
-    var article = '<p style="text-align:center;margin-bottom:20px;">九洲司法考试介绍</p><p style="font-size:12px;"><br/>分校详情分校详情分校详情分校详情分校详情分校详情课程<br/>介绍分校详情分校详情课程<br/>介绍分校详情课程<br/>介绍分校详情分校详情分校详情分校详情分校详情分校详情分校详情分校详情分校详情分校详情</p>'
-    var subStr = new RegExp('<div>&nbsp;</div>', 'ig');
-    article = article.replace(subStr, "<text style='margin-bottom:1em;'></text>");
-    WxParse.wxParse('article', 'html', article, that, 5);
   },
 
   /**
@@ -81,76 +76,59 @@ Page({
   onShareAppMessage: function () {
 
   },
-	getDetails(id) {
-	  var that = this
-	  const htmlStatus1 = htmlStatus.default(that)
-	  wx.request({
-	    url: app.IPurl,
-	    data: {
-	      "apipage": "shop",
-	      "op": "shopinfo",
-	      "id": id 
-	    },
-	    header: {
-	      'content-type': 'application/x-www-form-urlencoded'
-	    },
-	    dataType: 'json',
-	    method: 'get',
-	    success(res) {
-	      // 停止下拉动作
-	      wx.stopPullDownRefresh();
-	      console.log(res.data)
-	     if (res.data.error==0) {                           //数据不为空
-	       var picarr = res.data.model.pics
-	        var arr = picarr.split(",");
-	        var arr1 = []
-	        for (var i in arr) {
-	         var arr2 = []
-	         arr2 = arr[i].split("|");
-	         // console.log(imgurl+arr2[1])
-	         if (arr2[1] && arr2[1] != '') {
-	           arr1.push(app.IPurl1 + arr2[1])
-	         }
-	
-	        }
-	        that.setData({
-	          xqData: res.data.model,
-	          kefu: res.data.fxset,
-	          bannerimg: arr1
-	        })
-	       var article = res.data.model.description
-	        var subStr = new RegExp('<div>&nbsp;</div>', 'ig');
-	        article = article.replace(subStr, "<text style='margin-bottom:1em;'></text>");
-	        WxParse.wxParse('article', 'html', article, that, 5);
-	        wx.setNavigationBarTitle({
-	          title: res.data.model.name,
-	        })
-	        htmlStatus1.finish()    // 切换为finish状态
-	      } else {
-	        wx.showToast({
-	          icon: 'none',
-	          title: '加载失败'
-	        })
-	        htmlStatus1.error()    // 切换为error状态
-	      }
-	    },
-	    fail() {
-	      wx.setNavigationBarTitle({
-	        title: '业务介绍',
-	      })
-	      wx.showToast({
-	        icon: 'none',
-	        title: '加载失败'
-	      })
-	      htmlStatus1.error()    // 切换为error状态
-	    },
-	    complete() {
-	      // wx.setNavigationBarTitle({
-	      //   title: '详情页',
-	      // })
-	    }
-	  })
-	},
+  getDetails(id) {
+    var that = this
+    const htmlStatus1 = htmlStatus.default(that)
+    wx.request({
+      url: app.IPurl + '/api/busDetail',
+      data: {
+        "id": that.data.id
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      dataType: 'json',
+      method: 'get',
+      success(res) {
+        // 停止下拉动作
+        wx.stopPullDownRefresh();
+        console.log(res.data)
+        if (res.data.code == 1) {                           //数据不为空
+          that.setData({
+            xqData: res.data.data
+          })
+          var article = res.data.data.content
+          var subStr = new RegExp('<div>&nbsp;</div>', 'ig');
+          article = article.replace(subStr, "<text style='margin-bottom:1em;'></text>");
+          WxParse.wxParse('article', 'html', article, that, 5);
+          wx.setNavigationBarTitle({
+            title: res.data.data.title,
+          })
+          htmlStatus1.finish()    // 切换为finish状态
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: '加载失败'
+          })
+          htmlStatus1.error()    // 切换为error状态
+        }
+      },
+      fail() {
+        wx.setNavigationBarTitle({
+          title: '业务介绍',
+        })
+        wx.showToast({
+          icon: 'none',
+          title: '加载失败'
+        })
+        htmlStatus1.error()    // 切换为error状态
+      },
+      complete() {
+        // 停止下拉动作
+        wx.stopPullDownRefresh();
+      }
+    })
+  },
 	yyfuc(){
 	  var xqData = this.data.xqData
 		wx.navigateTo({

@@ -4,31 +4,32 @@
 <template is="htmlStatus" data="{{...htmlStatus}}" />
 <view class="container">
 	<scroll-view scroll-x="true" class="index_scroll">
-    <view	wx:for="{{index_tab}}" 
+    <view	wx:for="{{cate}}" 
       wx:for-index="idx" 
       wx:for-item="item" 
       wx:key="idx"
       data-idx='{{idx}}'
+      data-id='{{item.id}}'
       bindtap='qhcur'
-      class="index_tab pore {{idx==cur?'icur':''}}">{{item.title}}
+      class="index_tab pore {{idx==cur?'icur':''}}">{{item.name}}
         
     </view>
   </scroll-view>
   <view class="hx20"></view>
   <view class="ls_li"
-    wx:for="{{index_tab}}" 
+    wx:for="{{law}}" 
     wx:for-index="idx" 
     wx:for-item="item" 
     wx:key="idx"
-    data-url="" bindtap="jump">
+    data-url="/pages/ls_js/ls_js?id={{item.id}}" bindtap="jump">
     <view class="lsimg">
-      <image src="../../static/images/teacher.png"></image>
+      <image mode="aspectFill" lazy-load="true" src="{{filter.imgIP(item.pic)}}"></image>
     </view>
     <view class="ls_msg">
-      <view class="ls_name">{{'北京海淀律所'}}</view>
+      <view class="ls_name">{{item.name}}</view>
       <view class="ls_add">
         <image src="../../static/images/address.png"></image>
-        <text>{{'北京海淀区胜利街8号'}}</text>
+        <text>{{item.address}}</text>
       </view>
     </view>
     <view class="go_xq">

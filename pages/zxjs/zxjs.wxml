@@ -1,12 +1,13 @@
 <!--pages/zxjs/zxjs.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
 <view class="container">
   <view class="zx_t_img">
-    <image src="../../static/images/banner.png"></image>
+    <image mode="aspectFill" src="{{filter.imgIP(xqData.pic)}}"></image>
   </view>
-  <view class="zx_name">{{'名撒或is所所所所'}}</view>
-  <view class="zx_msg">{{'民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍民事咨询介绍'}}</view>
+  <view class="zx_name">{{xqData.title}}</view>
+  <view class="zx_msg">{{xqData.desc}}</view>
 	<view class="footer_f">
-		<view class="zx_pri">{{'￥118'}}</view>
-		<view class="zx_btn">付费咨询</view>
+		<view class="zx_pri">{{'￥'+xqData.price}}</view>
+		<view class="zx_btn" bindtap="zhifu">付费咨询</view>
 	</view>
 </view>

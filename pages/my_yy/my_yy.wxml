@@ -5,20 +5,20 @@
   <view class="h_tip">仅限查询近180天内预约订单</view>
 <view class="container">
   <view class="kc_li"
-    wx:for="{{index_tab}}" 
+    wx:for="{{datalist}}" 
     wx:for-index="idx" 
     wx:for-item="item" 
     wx:key="idx"
     data-url="" bindtap="jump">
-    <view class="myyy_name">{{'******项目'}}</view>
+    <view class="myyy_name">{{item.title}}</view>
     <view class="myyy_msg">
       <view class="mymsg_m1">
         <text class="m1_tit">接待人</text>
-        <text class="m1_inr">***律师</text>
+        <text class="m1_inr">{{item.service_man}}律师</text>
       </view>
       <view class="mymsg_m1 m2">
         <text class="m1_tit">预约时间</text>
-        <text class="m1_inr">2019/11/06</text>
+        <text class="m1_inr">{{item.appointment_time}}</text>
       </view>
     </view>
   </view>
