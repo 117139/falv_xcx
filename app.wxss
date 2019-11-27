@@ -603,3 +603,6 @@ action-sheet-item button {
 .guige{
 	position: relative;
 }
+.xq_msg table,.xq_msg view,.xq_msg text,.xq_msg video {
+  max-width: 100%!important;
+}
